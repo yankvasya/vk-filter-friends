@@ -9,7 +9,7 @@ module.exports = (env, args) => {
     const config = {
         entry: {
             bundle: ['./src/app.js'],
-            style: ['./src/style.scss']
+            style: ['reseter.css' ,'./src/style.scss']
         },
         output: {
             path: path.resolve(__dirname, 'docs'),
