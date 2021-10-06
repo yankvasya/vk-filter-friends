@@ -2,6 +2,7 @@ $windowHeight: 621px;
 
 body {
   font-family: 'Roboto', 'Fira Sans', sans-serif;
+  background: rgba(38, 36, 36, 0.98);
 }
 
 li, ul, ol, dl {
@@ -13,21 +14,6 @@ h1,h2,h3,h4,h5 {
   margin: 0;
 }
 
-//.friends__test {
-//  display: flex;
-//  flex-wrap: wrap;
-//}
-//
-//.friend__test {
-//  width: 100px;
-//  margin: 0 40px 40px 0;
-//  text-align: center;
-//}
-//
-//.friend__test img {
-//  border-radius: 50%;
-//}
-
 .window {
   position: absolute;
   top: 400px;
@@ -38,8 +24,7 @@ h1,h2,h3,h4,h5 {
   height: 492px;
   border-radius: 10px;
   background: #FFF;
-  //border: 1px solid rgba(211, 211, 211, 0.2);
-  box-shadow: 0px 0px 28px 28px rgba(131, 83, 54, 0.2);
+  box-shadow: 0 0 28px 28px rgba(131, 83, 54, 0.2);
   user-select: none;
 
   .choose-friends {
@@ -99,6 +84,15 @@ h1,h2,h3,h4,h5 {
     flex-direction: row;
     position: relative;
     width: 100%;
+    opacity: 1;
+
+    transition: opacity 0.8s;
+
+    &.waiting {
+      opacity: 0;
+
+      transition: opacity 0.8s;
+    }
 
     .friends__title {
       font-style: normal;
@@ -123,7 +117,6 @@ h1,h2,h3,h4,h5 {
         height: 13px;
         width: 13px;
         background: url("https://i.ibb.co/kHqHkc6/Vector-1.png");
-        transform: skew(50deg);
       }
     }
 

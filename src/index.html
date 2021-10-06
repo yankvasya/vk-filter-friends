@@ -23,7 +23,7 @@
                 <input type="text" id="bestFriendSearch" placeholder="Имя лучшего друга">
             </form>
 
-           <div class="friends-container">
+           <div class="friends-container waiting">
                <div class="friends">
                    <h3 class="friends__title">Ваши друзья</h3>
                    <ul id="allFriends" class="friends__list">
@@ -68,16 +68,16 @@
                <div class="best-friends">
                    <h3 class="friends__title">Лучшие друзья</h3>
                    <ul id="allBestFriends" class="friends__list">
-                       <li class="friend">
-                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">
-                           <h4 class="friend__name">Михаил Подольский</h4>
-                           <div class="toFriend arrow"></div>
-                       </li>
-                       <li class="friend">
-                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">
-                           <h4 class="friend__name">Инна Магдалина</h4>
-                           <div class="toFriend arrow"></div>
-                       </li>
+<!--                       <li class="friend">-->
+<!--                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">-->
+<!--                           <h4 class="friend__name">Михаил Подольский</h4>-->
+<!--                           <div class="toFriend arrow"></div>-->
+<!--                       </li>-->
+<!--                       <li class="friend">-->
+<!--                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">-->
+<!--                           <h4 class="friend__name">Инна Магдалина</h4>-->
+<!--                           <div class="toFriend arrow"></div>-->
+<!--                       </li>-->
                    </ul>
                </div>
            </div>
@@ -92,7 +92,7 @@
         <li class="friend" data-id="{{id}}">
             <img src="{{photo_100}}" alt="avatar" class="friend__img">
             <h4 class="friend__name">{{first_name}} {{last_name}}</h4>
-            <div class="toFriend arrow"></div>
+            <div class="arrow toBestFriend"></div>
         </li>
     {{/each}}
 </script>

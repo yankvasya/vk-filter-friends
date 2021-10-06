@@ -6,7 +6,7 @@ require('./index.html');
 //    - разрешить выполнять действия от нашего имени
 
 VK.init({
-    apiId: 7968262
+    apiId: 7958634
 });
 
 function auth() {
@@ -39,16 +39,13 @@ function callAPI(method, params) {
     try {
         await auth();
         const [me] = await callAPI('users.get', { name_case: 'gen'});
-        // const headerInfo = document.querySelector('#headerInfo');
-
-        // headerInfo.textContent = `Друзья на странице ${me.last_name} ${me.first_name}`;
-
         const friends = await callAPI('friends.get', { fields: 'photo_100' });
         const template = document.querySelector('#friendTemplate').textContent;
         // console.log(friends)
         const render = Handlebars.compile(template);
         const html = render(friends);
         const results = document.querySelector('#allFriends');
+        document.querySelector('.friends-container').classList.remove('waiting');
 
         results.innerHTML = html;
     } catch (e) {
@@ -95,13 +92,15 @@ document.addEventListener('drop', (e) => {
         return;
     }
 
+    console.log(elemBelow.parentElement)
+    elemBelow.parentElement.classList.contains('friends')
+        ? element.children[2].classList = 'arrow toBestFriend'
+        : element.children[2].classList = 'arrow toFriend';
+
     if(e.target.classList.contains('friend')) {
         const center = elemBelow.getBoundingClientRect().y + elemBelow.getBoundingClientRect().height / 2;
-
-
         if (e.clientY > center) {
             if (elemBelow.nextElementSibling !== null) {
-                console.log(elemBelow.nextElementSibling)
                 elemBelow = elemBelow.nextElementSibling;
             } else {
                 return;
@@ -119,4 +118,19 @@ document.addEventListener('drop', (e) => {
             e.target.classList.remove("drop");
         }
     }
-})
+});
+
+document.addEventListener('click', (e) => {
+    const isArrow = e.target.classList.contains('arrow');
+    const toFriend = e.target.classList.contains('toFriend');
+    const toBestFriend = e.target.classList.contains('toBestFriend');
+    if (isArrow) {
+        if (toBestFriend) {
+            e.target.classList = 'arrow toFriend';
+            document.querySelector('#allBestFriends').appendChild(e.target.parentElement);
+        } else {
+            e.target.classList = 'arrow toBestFriend';
+            document.querySelector('#allFriends').appendChild(e.target.parentElement);
+        }
+    }
+});
