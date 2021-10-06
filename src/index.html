@@ -11,9 +11,6 @@
 </head>
 <body>
 <div class="container">
-<!--    <h1 id="headerInfo"></h1>-->
-<!--    <div id="results"></div>-->
-
     <div class="window">
         <div class="choose-friends">
             <h1 class="choose-friends__title">Выберите друзей</h1>
@@ -30,41 +27,41 @@
                <div class="friends">
                    <h3 class="friends__title">Ваши друзья</h3>
                    <ul id="allFriends" class="friends__list">
-                       <li class="friend">
-                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">
-                           <h4 class="friend__name">Artem Barabanov</h4>
-                           <div class="toBestFriend arrow"></div>
-                       </li>
-                       <li class="friend">
-                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">
-                           <h4 class="friend__name">Иришка Кочерыжка</h4>
-                           <div class="toBestFriend arrow"></div>
-                       </li>
-                       <li class="friend">
-                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">
-                           <h4 class="friend__name">Александра Панкратова</h4>
-                           <div class="toBestFriend arrow"></div>
-                       </li>
-                       <li class="friend">
-                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">
-                           <h4 class="friend__name">Светлана Дулина</h4>
-                           <div class="toBestFriend arrow"></div>
-                       </li>
-                       <li class="friend">
-                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">
-                           <h4 class="friend__name">Ярослав Квач</h4>
-                           <div class="toBestFriend arrow"></div>
-                       </li>
-                       <li class="friend">
-                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">
-                           <h4 class="friend__name">Таня Плаксина</h4>
-                           <div class="toBestFriend arrow"></div>
-                       </li>
-                       <li class="friend">
-                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">
-                           <h4 class="friend__name">Твое Эго</h4>
-                           <div class="toBestFriend arrow"></div>
-                       </li>
+<!--                       <li class="friend">-->
+<!--                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">-->
+<!--                           <h4 class="friend__name">Artem Barabanov</h4>-->
+<!--                           <div class="toBestFriend arrow"></div>-->
+<!--                       </li>-->
+<!--                       <li class="friend">-->
+<!--                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">-->
+<!--                           <h4 class="friend__name">Иришка Кочерыжка</h4>-->
+<!--                           <div class="toBestFriend arrow"></div>-->
+<!--                       </li>-->
+<!--                       <li class="friend">-->
+<!--                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">-->
+<!--                           <h4 class="friend__name">Александра Панкратова</h4>-->
+<!--                           <div class="toBestFriend arrow"></div>-->
+<!--                       </li>-->
+<!--                       <li class="friend">-->
+<!--                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">-->
+<!--                           <h4 class="friend__name">Светлана Дулина</h4>-->
+<!--                           <div class="toBestFriend arrow"></div>-->
+<!--                       </li>-->
+<!--                       <li class="friend">-->
+<!--                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">-->
+<!--                           <h4 class="friend__name">Ярослав Квач</h4>-->
+<!--                           <div class="toBestFriend arrow"></div>-->
+<!--                       </li>-->
+<!--                       <li class="friend">-->
+<!--                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">-->
+<!--                           <h4 class="friend__name">Таня Плаксина</h4>-->
+<!--                           <div class="toBestFriend arrow"></div>-->
+<!--                       </li>-->
+<!--                       <li class="friend">-->
+<!--                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">-->
+<!--                           <h4 class="friend__name">Твое Эго</h4>-->
+<!--                           <div class="toBestFriend arrow"></div>-->
+<!--                       </li>-->
                    </ul>
                </div>
 
@@ -72,12 +69,12 @@
                    <h3 class="friends__title">Лучшие друзья</h3>
                    <ul id="allBestFriends" class="friends__list">
                        <li class="friend">
-                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="best-friend__img">
+                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">
                            <h4 class="friend__name">Михаил Подольский</h4>
                            <div class="toFriend arrow"></div>
                        </li>
                        <li class="friend">
-                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="best-friend__img">
+                           <img src="https://cdn-icons-png.flaticon.com/512/194/194938.png" alt="avatar" class="friend__img">
                            <h4 class="friend__name">Инна Магдалина</h4>
                            <div class="toFriend arrow"></div>
                        </li>
@@ -90,18 +87,15 @@
 
 </div>
 
-<script id="user-template" type="text/x-handlebars-template">
-    <div class="friends__test">
-        {{#each items}}
-            <div class="friend__test">
-                <img src="{{photo_100}}" alt="photo"/>
-                <div>{{first_name}} {{last_name}}</div>
-                <div>{{city.title}}</div>
-            </div>
-        {{/each}}
-    </div>
+<script id="friendTemplate" type="text/x-handlebars-template">
+    {{#each items}}
+        <li class="friend" data-id="{{id}}">
+            <img src="{{photo_100}}" alt="avatar" class="friend__img">
+            <h4 class="friend__name">{{first_name}} {{last_name}}</h4>
+            <div class="toFriend arrow"></div>
+        </li>
+    {{/each}}
 </script>
 
-<!--<script src="./app.js"></script>-->
 </body>
 </html>
