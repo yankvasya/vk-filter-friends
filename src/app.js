@@ -53,31 +53,38 @@ function callAPI(method, params) {
     }
 })();
 
+// при mousedown на друга вешается draggable true.
+// Зачем? Почему не прописать инлайном в темплейте? -потому что так солиднее,
+// так практичнее и без лишних данных в самом html
 document.addEventListener('mousedown', (e) => {
-    const allFriends = document.querySelector('#allFriends');
-    const isAllFriendsParent = e.target.parentNode === allFriends;
-    const isAllFriendsGranddad = e.target.parentNode.parentNode === allFriends;
+    const isAllFriendsParent = e.target.parentNode.classList.contains('friends__list');
+    const isAllFriendsGranddad = e.target.parentNode.parentNode.classList.contains('friends__list');
 
     isAllFriendsParent && (e.target.draggable = true) ||
     isAllFriendsGranddad && (e.target.parentElement.draggable = true);
 });
 
+// Просто ховер эффект при перетаскивании
 document.addEventListener('dragenter', (e) => {
     e.target.classList.contains('friends__list') && e.target.classList.add('drop');
 });
 
+// удаление ховер эффекта
 document.addEventListener('dragleave', (e) => {
     e.target.classList.contains('drop') && e.target.classList.remove('drop');
 });
 
+// при старте записывает дата-айди
 document.addEventListener('dragstart', (e) => {
     e.target.classList.contains('friend') && e.dataTransfer.setData("text/plain", e.target.dataset.id);
 });
 
 let elemBelow = "";
 
+// Дропать можно либо на друга, либо в список друзей
 document.addEventListener('dragover', (e) => {
-    e.preventDefault();
+    e.target.classList.contains('friend') && e.preventDefault();
+    e.target.classList.contains('friends__list') && e.preventDefault();
     elemBelow = e.target;
 });
 
@@ -86,16 +93,17 @@ document.addEventListener('drop', (e) => {
         `[data-id="${e.dataTransfer.getData("text/plain")}"]`
     );
 
-    // Тута немножко багует
+    // ?
     if (elemBelow === element) {
-        console.log('Жопа?');
+        elemBelow.removeAttribute('draggable');
         return;
     }
 
-    console.log(elemBelow.parentElement)
     elemBelow.parentElement.classList.contains('friends')
         ? element.children[2].classList = 'arrow toBestFriend'
         : element.children[2].classList = 'arrow toFriend';
+
+    element.removeAttribute('draggable');
 
     if(e.target.classList.contains('friend')) {
         const center = elemBelow.getBoundingClientRect().y + elemBelow.getBoundingClientRect().height / 2;
@@ -128,9 +136,19 @@ document.addEventListener('click', (e) => {
         if (toBestFriend) {
             e.target.classList = 'arrow toFriend';
             document.querySelector('#allBestFriends').appendChild(e.target.parentElement);
-        } else {
+        } else if (toFriend) {
             e.target.classList = 'arrow toBestFriend';
             document.querySelector('#allFriends').appendChild(e.target.parentElement);
         }
     }
+});
+
+// Следующие 2 слушателя убирают возможность перемещать текст в инпутах
+// Ибо этот текст можно было перемещать в drop зону
+document.querySelector('#friendSearch').addEventListener('dragstart', (e) => {
+    e.preventDefault();
+});
+
+document.querySelector('#bestFriendSearch').addEventListener('dragstart', (e) => {
+   e.preventDefault();
 });
