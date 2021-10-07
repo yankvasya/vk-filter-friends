@@ -152,3 +152,30 @@ document.querySelector('#friendSearch').addEventListener('dragstart', (e) => {
 document.querySelector('#bestFriendSearch').addEventListener('dragstart', (e) => {
    e.preventDefault();
 });
+
+const friendSearch = document.querySelector('#friendSearch');
+const bestFriendSearch = document.querySelector('#bestFriendSearch');
+
+// фильтрация обычных друзей
+friendSearch.addEventListener('input', () => {
+    const friendList = document.querySelector('#allFriends').children;
+    filterFriends(friendList, friendSearch);
+});
+
+// фильтрация лучших друзей
+bestFriendSearch.addEventListener('input', () => {
+    const friendList = document.querySelector('#allBestFriends').children;
+    filterFriends(friendList, bestFriendSearch);
+});
+
+// сама фильтрация
+function filterFriends(friends, search) {
+    for (const friend of friends) {
+        const name = friend.children[1].innerText.toLowerCase();
+        const filterValue = search.value.toLowerCase();
+
+        !name.includes(filterValue)
+            ? friend.classList.add('none')
+            : friend.classList.contains('none') && friend.classList.remove('none');
+    }
+}
