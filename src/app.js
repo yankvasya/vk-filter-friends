@@ -1,12 +1,7 @@
 require('./index.html');
 
-// 1) регистрация приложения -> получение api id
-// 2) авторизация на сайте
-//    - открыть окно с запросом прав
-//    - разрешить выполнять действия от нашего имени
-
 VK.init({
-    apiId: 7958634
+    apiId: 7968262
 });
 
 function auth() {
@@ -38,7 +33,7 @@ function callAPI(method, params) {
 (async () => {
     try {
         await auth();
-        const [me] = await callAPI('users.get', { name_case: 'gen'});
+        // const [me] = await callAPI('users.get', { name_case: 'gen'});
         const friends = await callAPI('friends.get', { fields: 'photo_100' });
         const template = document.querySelector('#friendTemplate').textContent;
         // console.log(friends)
