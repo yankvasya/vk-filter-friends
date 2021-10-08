@@ -57,6 +57,9 @@ function callAPI(method, params) {
 // Зачем? Почему не прописать инлайном в темплейте? -потому что так солиднее,
 // так практичнее и без лишних данных в самом html
 document.addEventListener('mousedown', (e) => {
+    if (e.target.tagName === 'HTML') {
+        return;
+    }
     const isAllFriendsParent = e.target.parentNode.classList.contains('friends__list');
     const isAllFriendsGranddad = e.target.parentNode.parentNode.classList.contains('friends__list');
 
