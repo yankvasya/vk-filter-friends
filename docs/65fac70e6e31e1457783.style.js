@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkvk_filter_friends=self.webpackChunkvk_filter_friends||[]).push([[953],{243:()=>{},373:()=>{}},e=>{var s=s=>e(e.s=s);s(243),s(373)}]);
